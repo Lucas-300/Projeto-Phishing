@@ -12,6 +12,11 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os
+from decouple import Config, RepositoryEnv
+
+# Carrega as configurações do arquivo chamado "arquivo.env"
+config = Config(RepositoryEnv(os.path.join(os.path.dirname(__file__), 'arquivo.env')))
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
@@ -21,12 +26,18 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '=2d*0-%l@xo1+6a^9@&e3#mz9j0(9r&^xlt$d@4y59(y$xx37%'
+SECRET_KEY = config('SECRET_KEY', default='chave_secreta_de_desenvolvimento')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', default=True, cast=bool)
 
-ALLOWED_HOSTS = ['127.0.0.1', 'phishing-websites.herokuapp.com']
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='127.0.0.1').split(',')
+
+#Para Cooks
+CSRF_COOKIE_SECURE = config('CSRF_COOKIE_SECURE', default=False, cast=bool)
+SESSION_COOKIE_SECURE = config('SESSION_COOKIE_SECURE', default=False, cast=bool)
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
 
 
 # Application definition
@@ -56,7 +67,7 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': [os.path.join(BASE_DIR, 'polls/templates')], 
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -119,5 +130,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/static/' # URL para servir arquivos estáticos
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+#colocado depos
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'polls', 'static'),
+]
+
+
+
+
+

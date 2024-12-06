@@ -1,0 +1,121 @@
+/* Estilo geral */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000; /* Fundo preto */
+    color: #e0e0e0; /* Texto branco suave */
+}
+
+/* Estilo do formulário */
+form {
+    background-color: #121212; /* Fundo cinza escuro para contraste */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1); /* Sombras mais discretas */
+    width: 60%;
+    margin: 20px auto;
+}
+
+/* Inputs e botões */
+input, button {
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #39ff14; /* Borda verde neon */
+    background-color: #1e1e1e; /* Fundo cinza escuro */
+    color: #39ff14; /* Texto verde neon */
+}
+
+/* Estilo do botão */
+button {
+    background-color: #39ff14; /* Cor do botão */
+    color: #000; /* Texto preto */
+    border: none;
+    padding: 12px 20px; /* Tamanho do botão */
+    text-transform: uppercase; /* Tornar o texto em maiúsculas */
+    font-weight: bold; /* Texto em negrito */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Efeito suave ao passar o mouse */
+}
+
+button:hover {
+    background-color: #33cc12; /* Cor do botão ao passar o mouse */
+    transform: translateY(-2px); /* Efeito de elevação ao passar o mouse */
+}
+
+button:active {
+    transform: translateY(1px); /* Efeito de pressionamento */
+}
+
+/* Resultado */
+.result-container {
+    margin-top: 20px;
+    text-align: center;
+    color: #fff; /* Texto branco para contraste */
+}
+
+/* Estilo para botões de rádio */
+label {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 15px; /* Espaçamento entre as opções */
+    font-size: 1rem; /* Tamanho de fonte ajustado */
+    color: #e0e0e0; /* Texto branco suave */
+}
+
+.radio-group {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espaçamento entre as opções */
+    margin: 10px 0; /* Margem no grupo */
+}
+
+input[type="radio"] {
+    margin: 0;
+    accent-color: #39ff14; /* Cor verde neon */
+}
+
+/* Ajuste para títulos */
+h1, h2 {
+    color: #39ff14; /* Verde neon para destaque */
+}
+
+/* Ajuste para labels */
+label {
+    font-weight: 600; /* Destaque para o texto */
+}
+
+
+
+/* Estilo para o contêiner dos botões de rádio */
+.radio-group {
+    display: flex;
+    gap: 10px; /* Espaço entre os botões */
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+/* Centraliza os botões de opção e os rótulos */
+.radio-group {
+    display: flex;
+    gap: 10px; /* Espaço entre os itens dentro do grupo */
+    align-items: center; /* Centraliza verticalmente */
+    margin-bottom: 20px; /* Espaçamento abaixo do grupo */
+}
+
+/* Define margens para os rótulos */
+.radio-group label {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Espaço entre o botão e o texto */
+    font-size: 1rem;
+}
+
+/* Ajusta a aparência dos inputs */
+.radio-group input[type="radio"] {
+    accent-color: #007BFF; /* Altere a cor para personalizar */
+}
+
+/* Espaçamento geral entre os campos do formulário */
+form > * {
+    margin-bottom: 20px; /* Espaço entre os elementos do formulário */
+}
